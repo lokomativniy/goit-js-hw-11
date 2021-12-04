@@ -1,0 +1,31 @@
+{{!-- {{#each this}}
+  <div style="padding-left: 20px;">
+    <img src={{flags.svg}} alt={{name}} width='150' height='70' />
+    <h1>{{name.common}}</h1>
+    <p ><span style="font-weight:bold">Capital:</span> {{capital}}</p>
+    <p ><span style="font-weight:bold">Population:</span> {{population}}</p>
+    <p ><span style="font-weight:bold">Languages:</span>
+      {{#each languages}}<span>{{this}}</span>{{/each}}</p>
+  </div>
+{{/each}} --}}
+ {{#each this}}
+<div class="photo-card">
+  <a class = "photo-link" href={{largeImageURL}}>
+  <img class="photo-img" src={{webformatURL}} alt={{tags}} loading="lazy" />
+  </a>
+  <div class="info">
+    <p class="info-item">Likes
+      <b>{{likes}}</b>
+    </p>
+    <p class="info-item">Views
+      <b>{{views}}</b>
+    </p>
+    <p class="info-item">Comments
+      <b>{{comments}}</b>
+    </p>
+    <p class="info-item">Downloads
+      <b>{{downloads}}</b>
+    </p>
+  </div>
+</div>
+{{/each}} 
