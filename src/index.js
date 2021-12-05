@@ -35,6 +35,7 @@ async function onSearch(e) {
       appendCardsMarkup(res.hits);
     }
   } catch (error) {
+    Notiflix.Notify.failure('Error. Something went wrong');
     console.log(error);
   }
 }
@@ -47,13 +48,8 @@ async function onLoad() {
       Notiflix.Notify.failure('"We are sorry, but you have reached the end of search results."');
       loadMoreBtn.classList.add('is-hidden');
     }
-    const { height: cardHeight } = document
-      .querySelector('.gallery')
-      .firstElementChild.getBoundingClientRect();
-    window.scrollBy({
-      top: cardHeight * 1.5,
-      behavior: 'smooth',
-    });
+    getScroll();
+    
   } catch (error) {
     console.log(error);
   }
@@ -66,3 +62,14 @@ function appendCardsMarkup(hits) {
 function clearGallery() {
   gallery.innerHTML = '';
 }
+
+function getScroll() {
+  const { height: cardHeight } = document
+    .querySelector('.gallery')
+    .firstElementChild.getBoundingClientRect();
+  window.scrollBy({
+    top: cardHeight * 1.5,
+    behavior: 'smooth',
+  });
+}
+
